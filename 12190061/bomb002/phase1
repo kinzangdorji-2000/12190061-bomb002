@@ -1,4 +1,4 @@
-(gdb) b phase_1
+(gdb) b phase_1 // it is to set a break point where it will stop the execution of code when we enter incorrect input and also it won't explode the bomb.
 Breakpoint 1 at 0x400e8d
 (gdb) r
 Starting program: /home/user/Desktop/bomb002-20210919T152343Z-001/bomb002/bomb 
