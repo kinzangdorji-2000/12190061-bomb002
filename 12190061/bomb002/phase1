@@ -32,7 +32,7 @@ Dump of assembler code for function phase_1:
    0x0000000000400ea4 <+23>:	add    $0x8,%rsp
    0x0000000000400ea8 <+27>:	retq   
 End of assembler dump.
-(gdb) i r //Instruction Register
+(gdb) i r //Instruction Register which holds the instructions that are currently being executed or decoded.
 rax            0x1	1
 rbx            0x0	0
 rcx            0x3	3
