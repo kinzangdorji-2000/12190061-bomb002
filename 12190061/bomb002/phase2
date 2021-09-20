@@ -12,7 +12,7 @@ Dump of assembler code for function phase_2:
    0x0000000000400eb8 <+15>:	mov    %rax,0x18(%rsp)
    0x0000000000400ebd <+20>:	xor    %eax,%eax
    0x0000000000400ebf <+22>:	mov    %rsp,%rsi
-   0x0000000000400ec2 <+25>:	callq  0x40145a <read_six_numbers>
+   0x0000000000400ec2 <+25>:	callq  0x40145a <read_six_numbers> //it indicates that input should be six numbers
    0x0000000000400ec7 <+30>:	cmpl   $0x1,(%rsp)
    0x0000000000400ecb <+34>:	je     0x400ed2 <phase_2+41>
    0x0000000000400ecd <+36>:	callq  0x401438 <explode_bomb>
@@ -936,3 +936,5 @@ End of assembler dump.
 main (argc=<optimized out>, argv=<optimized out>) at bomb.c:83
 83	    phase_defused();
 (gdb) 
+
+The solution for phase_2 is "1 2 4 8 16 32" where these are the accurate outputs to be executed.
