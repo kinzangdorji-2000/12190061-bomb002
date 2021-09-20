@@ -1,1 +1,130 @@
+(gdb) b phase_1
+Breakpoint 1 at 0x400e8d
+(gdb) r
+Starting program: /home/user/Desktop/bomb002-20210919T152343Z-001/bomb002/bomb 
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+try
+
+Breakpoint 1, 0x0000000000400e8d in phase_1 ()
+(gdb) disas
+Dump of assembler code for function phase_1:
+=> 0x0000000000400e8d <+0>:	sub    $0x8,%rsp
+   0x0000000000400e91 <+4>:	mov    $0x4023cc,%esi
+   0x0000000000400e96 <+9>:	callq  0x401339 <strings_not_equal>
+   0x0000000000400e9b <+14>:	test   %eax,%eax
+   0x0000000000400e9d <+16>:	je     0x400ea4 <phase_1+23>
+   0x0000000000400e9f <+18>:	callq  0x401438 <explode_bomb>
+   0x0000000000400ea4 <+23>:	add    $0x8,%rsp
+   0x0000000000400ea8 <+27>:	retq   
+End of assembler dump.
+(gdb) u*0x0000000000400e9b
+0x0000000000400e9b in phase_1 ()
+(gdb) disas
+Dump of assembler code for function phase_1:
+   0x0000000000400e8d <+0>:	sub    $0x8,%rsp
+   0x0000000000400e91 <+4>:	mov    $0x4023cc,%esi
+   0x0000000000400e96 <+9>:	callq  0x401339 <strings_not_equal>
+=> 0x0000000000400e9b <+14>:	test   %eax,%eax
+   0x0000000000400e9d <+16>:	je     0x400ea4 <phase_1+23>
+   0x0000000000400e9f <+18>:	callq  0x401438 <explode_bomb>
+   0x0000000000400ea4 <+23>:	add    $0x8,%rsp
+   0x0000000000400ea8 <+27>:	retq   
+End of assembler dump.
+(gdb) i r
+rax            0x1	1
+rbx            0x0	0
+rcx            0x3	3
+rdx            0x1	1
+rsi            0x4023cc	4203468
+rdi            0x4023e9	4203497
+rbp            0x4021f0	0x4021f0 <__libc_csu_init>
+rsp            0x7fffffffdd70	0x7fffffffdd70
+r8             0x604674	6309492
+r9             0x7ffff7fdd540	140737353995584
+r10            0x3	3
+r11            0x7ffff7a12980	140737347922304
+r12            0x400c60	4197472
+r13            0x7fffffffde60	140737488346720
+r14            0x0	0
+r15            0x0	0
+rip            0x400e9b	0x400e9b <phase_1+14>
+eflags         0x293	[ CF AF SF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+(gdb) x/s 0x4023cc
+0x4023cc:	"Public speaking is very easy."
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/user/Desktop/bomb002-20210919T152343Z-001/bomb002/bomb 
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+Public speaking is very easy.
+
+Breakpoint 1, 0x0000000000400e8d in phase_1 ()
+(gdb) disas
+Dump of assembler code for function phase_1:
+=> 0x0000000000400e8d <+0>:	sub    $0x8,%rsp
+   0x0000000000400e91 <+4>:	mov    $0x4023cc,%esi
+   0x0000000000400e96 <+9>:	callq  0x401339 <strings_not_equal>
+   0x0000000000400e9b <+14>:	test   %eax,%eax
+   0x0000000000400e9d <+16>:	je     0x400ea4 <phase_1+23>
+   0x0000000000400e9f <+18>:	callq  0x401438 <explode_bomb>
+   0x0000000000400ea4 <+23>:	add    $0x8,%rsp
+   0x0000000000400ea8 <+27>:	retq   
+End of assembler dump.
+(gdb) u*0x0000000000400e9b
+0x0000000000400e9b in phase_1 ()
+(gdb) disas
+Dump of assembler code for function phase_1:
+   0x0000000000400e8d <+0>:	sub    $0x8,%rsp
+   0x0000000000400e91 <+4>:	mov    $0x4023cc,%esi
+   0x0000000000400e96 <+9>:	callq  0x401339 <strings_not_equal>
+=> 0x0000000000400e9b <+14>:	test   %eax,%eax
+   0x0000000000400e9d <+16>:	je     0x400ea4 <phase_1+23>
+   0x0000000000400e9f <+18>:	callq  0x401438 <explode_bomb>
+   0x0000000000400ea4 <+23>:	add    $0x8,%rsp
+   0x0000000000400ea8 <+27>:	retq   
+End of assembler dump.
+(gdb) i r
+rax            0x0	0
+rbx            0x0	0
+rcx            0x1d	29
+rdx            0x0	0
+rsi            0x4023cc	4203468
+rdi            0x4023e9	4203497
+rbp            0x4021f0	0x4021f0 <__libc_csu_init>
+rsp            0x7fffffffdd70	0x7fffffffdd70
+r8             0x60468e	6309518
+r9             0x7ffff7fdd540	140737353995584
+r10            0x3	3
+r11            0x7ffff7a12980	140737347922304
+r12            0x400c60	4197472
+r13            0x7fffffffde60	140737488346720
+r14            0x0	0
+r15            0x0	0
+rip            0x400e9b	0x400e9b <phase_1+14>
+eflags         0x246	[ PF ZF IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+(gdb) d
+Delete all breakpoints? (y or n) y
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /home/user/Desktop/bomb002-20210919T152343Z-001/bomb002/bomb 
+Welcome to my fiendish little bomb. You have 6 phases with
+which to blow yourself up. Have a nice day!
+Public speaking is very easy.
+Phase 1 defused. How about the next one?
+Public speaking is very easy.
 
