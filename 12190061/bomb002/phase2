@@ -1,6 +1,6 @@
 
 Phase 1 defused. How about the next one?
-1 2 3 4 45 3
+1 2 3 4 45 3 //These are the user inputs.
 
 Breakpoint 1, 0x0000000000400ea9 in phase_2 ()
 (gdb) disas
