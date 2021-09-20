@@ -1,7 +1,7 @@
 Phase 1 defused. How about the next one?
 1 2 4 8 16 32
 That's number 2.  Keep going!
-1 2
+1 2 //These are the two user inputs.
 
 Breakpoint 1, 0x0000000000400f0d in phase_3 ()
 (gdb) disas
@@ -2437,3 +2437,4 @@ A debugging session is active.
 
 	Inferior 1 [process 8120] will be killed.
 
+Therefore the solution for phase_3 is "1 4294966790".
