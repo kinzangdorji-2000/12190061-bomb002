@@ -56,7 +56,7 @@ Dump of assembler code for function phase_4:
    0x0000000000401025 <+23>:	lea    0x4(%rsp),%rdx
    0x000000000040102a <+28>:	mov    $0x4025b7,%esi
    0x000000000040102f <+33>:	callq  0x400bb0 <__isoc99_sscanf@plt>
-=> 0x0000000000401034 <+38>:	cmp    $0x2,%eax
+=> 0x0000000000401034 <+38>:	cmp    $0x2,%eax  //Comparison has been made between $0x2 and %eax where %eax=2;
    0x0000000000401037 <+41>:	jne    0x401044 <phase_4+54>
    0x0000000000401039 <+43>:	mov    (%rsp),%eax
    0x000000000040103c <+46>:	sub    $0x2,%eax
@@ -243,14 +243,14 @@ End of assembler dump.
 
 
 (gdb) i r
-rax            0x2                 2
+rax            0x2                 2   //%eax = 2;
 rbx            0x4021f0            4202992
 rcx            0x0                 0
 rdx            0x7fffffffdde0      140737488346592
 rsi            0x0                 0
 rdi            0x7fffffffd790      140737488344976
 rbp            0x0                 0x0
-rsp            0x7fffffffdde0      0x7fffffffdde0
+rsp            0x7fffffffdde0      0x7fffffffdde0  //Here it reads my user input in a reverse order: x/d 0x7fffffffdde0 = 2 & x/2d 0x7fffffffdde0 = 1;
 r8             0xffffffff          4294967295
 r9             0x0                 0
 r10            0x7ffff7f5bac0      140737353464512
@@ -271,14 +271,14 @@ gs             0x0                 0
 
 
 (gdb) i r
-rax            0x0                 0
+rax            0x0                 0   //%eax = 0;
 rbx            0x4021f0            4202992
 rcx            0x0                 0
 rdx            0x7fffffffdde0      140737488346592
 rsi            0x0                 0
 rdi            0x7fffffffd790      140737488344976
 rbp            0x0                 0x0
-rsp            0x7fffffffdde0      0x7fffffffdde0
+rsp            0x7fffffffdde0      0x7fffffffdde0  
 r8             0xffffffff          4294967295
 r9             0x0                 0
 r10            0x7ffff7f5bac0      140737353464512
@@ -296,14 +296,13 @@ es             0x0                 0
 fs             0x0                 0
 --Type <RET> for more, q to quit, c to continue without paging--
 gs             0x0                 0
-(gdb) x/d 0x7fffffffdde0
-0x7fffffffdde0:	2
+
 
 
 (gdb) p/d *(int*)($rsp+0x4)
 $2 = 1
 (gdb) i r
-rax            0x18                24
+rax            0x18                24  //%eax = 24;
 rbx            0x4021f0            4202992
 rcx            0x0                 0
 rdx            0x7fffffffdde0      140737488346592
@@ -328,3 +327,8 @@ es             0x0                 0
 fs             0x0                 0
 --Type <RET> for more, q to quit, c to continue without paging--
 gs             0x0                 0
+
+//The accurate inputs are '24' & '2', so the phase was defused.
+Halfway there!
+24 2
+
