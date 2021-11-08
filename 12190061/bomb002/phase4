@@ -252,22 +252,7 @@ rdi            0x7fffffffd790      140737488344976
 rbp            0x0                 0x0
 rsp            0x7fffffffdde0      0x7fffffffdde0  //Here it reads my user input in a reverse order: x/d 0x7fffffffdde0 = 2 & x/2d 0x7fffffffdde0 = 1;
 r8             0xffffffff          4294967295
-r9             0x0                 0
-r10            0x7ffff7f5bac0      140737353464512
-r11            0x0                 0
-r12            0x400c60            4197472
-r13            0x7fffffffdef0      140737488346864
-r14            0x0                 0
-r15            0x0                 0
-rip            0x401034            0x401034 <phase_4+38>
-eflags         0x206               [ PF IF ]
-cs             0x33                51
-ss             0x2b                43
-ds             0x0                 0
-es             0x0                 0
-fs             0x0                 0
---Type <RET> for more, q to quit, c to continue without paging--
-gs             0x0                 0
+
 
 
 (gdb) i r
@@ -279,23 +264,6 @@ rsi            0x0                 0
 rdi            0x7fffffffd790      140737488344976
 rbp            0x0                 0x0
 rsp            0x7fffffffdde0      0x7fffffffdde0  
-r8             0xffffffff          4294967295
-r9             0x0                 0
-r10            0x7ffff7f5bac0      140737353464512
-r11            0x0                 0
-r12            0x400c60            4197472
-r13            0x7fffffffdef0      140737488346864
-r14            0x0                 0
-r15            0x0                 0
-rip            0x401049            0x401049 <phase_4+59>
-eflags         0x293               [ CF AF SF IF ]
-cs             0x33                51
-ss             0x2b                43
-ds             0x0                 0
-es             0x0                 0
-fs             0x0                 0
---Type <RET> for more, q to quit, c to continue without paging--
-gs             0x0                 0
 
 
 
@@ -311,24 +279,9 @@ rdi            0x1                 1
 rbp            0x0                 0x0
 rsp            0x7fffffffdde0      0x7fffffffdde0
 r8             0xffffffff          4294967295
-r9             0x0                 0
-r10            0x7ffff7f5bac0      140737353464512
-r11            0x0                 0
-r12            0x400c60            4197472
-r13            0x7fffffffdef0      140737488346864
-r14            0x0                 0
-r15            0x0                 0
-rip            0x401056            0x401056 <phase_4+72>
-eflags         0x206               [ PF IF ]
-cs             0x33                51
-ss             0x2b                43
-ds             0x0                 0
-es             0x0                 0
-fs             0x0                 0
---Type <RET> for more, q to quit, c to continue without paging--
-gs             0x0                 0
 
-//The accurate inputs are '24' & '2', so the phase was defused.
+
+//Therefore the accurate inputs are '24' & '2', so the phase was defused.
 Halfway there!
 24 2
 
